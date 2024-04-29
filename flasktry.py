@@ -29,7 +29,6 @@ def predict():
     while True:
         imgarr=["shirt1.png",'shirt2.png','shirt51.jpg','shirt6.png']
 
-        #ih=input("Enter the shirt number you want to try")
         imgshirt = cv2.imread(imgarr[ih-1],1) #original img in bgr
         if ih==3:
             shirtgray = cv2.cvtColor(imgshirt,cv2.COLOR_BGR2GRAY) #grayscale conversion
@@ -74,7 +73,7 @@ def predict():
             pantWidth =  3 * w  #approx wrt face width
             pantHeight = pantWidth * origpantHeight / origpantWidth #preserving aspect ratio of original image..
 
-            # Center the pant..just random calculations..
+            # Center the pant
             if i==1:
                 x1 = x-w
                 x2 =x1+3*w
@@ -95,7 +94,6 @@ def predict():
             #two cases:
             """
             close to camera: image will be to big
-            so face ke x+w ke niche hona chahiye warna dont render at all
             """
             if x1 < 0:
                 x1 = 0 #top left ke bahar
